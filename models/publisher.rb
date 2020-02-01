@@ -65,4 +65,14 @@ class Publisher
       return Publisher.new( results.first )
     end
 
+    # Finds by publisher name
+
+    def self.find(name)
+      sql = "SELECT * FROM publishers
+            WHERE name = $1"
+      values = [name]
+      results = SqlRunner.run(sql, values)
+      return Publisher.new( results.first )
+    end
+
   end

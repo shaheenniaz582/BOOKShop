@@ -48,7 +48,7 @@ class Author
   end
 
   #   !!!!DELETE BY ID
-  
+
   def delete()
     sql = "DELETE from authors where id = $1"
     values = [@id]
@@ -65,6 +65,15 @@ class Author
     return Author.new( results.first )
   end
 
+  # Finds by author name
+
+  def self.find(name)
+    sql = "SELECT * FROM authors
+          WHERE name = $1"
+    values = [name]
+    results = SqlRunner.run(sql, values)
+    return Author.new( results.first )
+  end
 
 
 end

@@ -75,5 +75,16 @@ class Book
     return Book.new( results.first )
   end
 
+# !!!FINDs a book by its title
+
+  def self.find(title)
+    sql = "SELECT * FROM books
+          WHERE title = $1"
+    values = [title]
+    results = SqlRunner.run(sql, values)
+    return Book.new( results.first )
+  end
+
+
 
 end
