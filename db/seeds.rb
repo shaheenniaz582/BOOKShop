@@ -22,6 +22,12 @@ author4.save()
 author5 = Author.new({"name" => "J.K.Rowling"})
 author5.save()
 
+author6 = Author.new({"name" => "Lisa"})
+author6.save()
+
+author7 = Author.new({"name" => "Philip ruker"})
+author7.save()
+
 publisher1 = Publisher.new({"name" => "ruby AAA"})
 publisher1.save()
 
@@ -96,6 +102,30 @@ book5 = Book.new({
           })
 
 book5.save()
+
+book6 = Book.new({
+                "title" => "Sleep Recovery",
+                "buying_price" =>10,
+                "selling_price" =>12,
+                "Description" =>"AAAAAAAAA",
+                "stock_quantity" =>100,
+                "author_id" => author6.id,
+                "publisher_id" => publisher5.id
+          })
+
+book6.save()
+
+book7 = Book.new({
+                "title" => "A Very stable Genius",
+                "buying_price" =>10,
+                "selling_price" =>12,
+                "Description" =>"AAAAAAAAA",
+                "stock_quantity" =>100,
+                "author_id" => author7.id,
+                "publisher_id" => publisher5.id
+          })
+
+book7.save()
 
 
 binding.pry

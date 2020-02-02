@@ -36,7 +36,7 @@ class Book
   def self.all()
     sql = "SELECT * FROM books"
     results = SqlRunner.run( sql )
-    return results.map { |hash_bk| Author.new(hash_bk) }
+    return results.map { |hash_bk| Book.new(hash_bk) }
   end
 
   #  !!!UPDATE!!!

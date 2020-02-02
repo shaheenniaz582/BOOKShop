@@ -28,7 +28,7 @@ class Publisher
     def self.all()
       sql = "SELECT * FROM publishers"
       results = SqlRunner.run( sql )
-      return results.map { |hash_pbshr| Author.new(hash_pbshr) }
+      return results.map { |hash_pbshr| Publisher.new(hash_pbshr) }
     end
 
     #  !!!UPDATE!!!

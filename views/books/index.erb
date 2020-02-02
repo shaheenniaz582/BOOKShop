@@ -1,0 +1,10 @@
+<h1>Books</h1>
+
+<% @books.each do |book| %>
+  <p>Title: <%= book.title %> </p>
+  <p>Buying Price: <%= book.buying_price %> </p>
+  <p>Selling Price: <%= book.selling_price %> </p>
+  <p>Stock Quantity: <%= book.stock_quantity %> </p>
+  <p>Description: <%= book.description %> </p>
+  <hr />
+<% end %>
