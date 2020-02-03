@@ -2,7 +2,7 @@ require_relative('../db/sql_runner')
 
 class Book
 
-  attr_reader( :id, :title, :buying_price, :selling_price,
+  attr_accessor( :id, :title, :buying_price, :selling_price,
                :description, :stock_quantity, :author_id, :publisher_id)
 
   def initialize( options )
@@ -13,7 +13,7 @@ class Book
     @description = options['description']
     @stock_quantity = options['stock_quantity'].to_i
     @author_id = options['author_id'].to_i
-    @publisher_id = options['publisher_id']
+    @publisher_id = options['publisher_id'].to_i
   end
 
   # --------- CRUD --------
@@ -44,7 +44,7 @@ class Book
   def update()
       sql = "UPDATE books SET (title, buying_price, selling_price,
             description, stock_quantity, author_id, publisher_id) = ($1, $2, $3, $4, $5,$6,$7)
-      WHERE id = $8"
+            WHERE id = $8"
       values = [@title, @buying_price,@selling_price, @description,
                @stock_quantity, @author_id, @publisher_id, @id]
       SqlRunner.run(sql, values)
@@ -77,7 +77,7 @@ class Book
 
 # !!!FINDs a book by its title
 
-  def self.find(title)
+  def self.find_by_title(title)
     sql = "SELECT * FROM books
           WHERE title = $1"
     values = [title]
@@ -85,6 +85,16 @@ class Book
     return Book.new( results.first )
   end
 
+  def author()
+    sql = "Select * from authors where id = $1"
+    values = [@author_id]
+    author = SqlRunner.run(sql,values)[0]
+    return Author.new(author)
+  end
 
+  def publisher()
+    publisher = Publisher.find(@publisher_id)
+    return publisher
+  end
 
 end

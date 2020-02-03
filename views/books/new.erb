@@ -1,0 +1,55 @@
+<form method="post" action="/books">
+  <label for="title">Title:</label>
+  <input
+  type="text"
+  name="title"
+  id="title_field"
+
+  />
+
+  <label for="buying_price">Buying Price:</label>
+  <input
+  type="float"
+  name="buying_price"
+  id="buyingprice_field"
+
+  />
+
+  <label for="">Selling Price:</label>
+  <input
+  type="FLOAT"
+  name="selling_price"
+  id="sellingpricefield"
+
+  />
+
+  <label for="Description">Description:</label>
+  <input
+  type="text"
+  name="description"
+  id="description-field"
+
+  />
+
+  <label for="stock">Stock_Quantity:</label>
+  <input
+  type="text"
+  name="stock_quantity"
+  id="stockQuantity-field"
+  
+  />
+  <label for="author_select">Select An Author:</label>
+      <select name="author_id" id="author_select">
+        <% @authors.each do |author| %>
+            <option value=<%= author.id %>><%= author.name.capitalize %></option>
+        <% end %>
+      </select>
+  <label for="publisher_select">Select A Publisher:</label>
+      <select name="publisher_id" id="publisher_select">
+        <% @publishers.each do |publisher| %>
+            <option value=<%= publisher.id %>><%= publisher.name.capitalize %></option>
+        <% end %>
+      </select>
+
+  <input type="submit" value="Add Book">
+</form>

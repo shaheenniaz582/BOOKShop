@@ -1,7 +1,9 @@
 <h1>Books</h1>
 
 <% @books.each do |book| %>
-  <p>Title: <%= book.title %> </p>
+ <!-- it will take to route books/id
+ <!-- route in books_controller   -->
+  <p><a href="/books/<%= book.id %>">  <%= book.title %> </a> </p>
   <p>Buying Price: <%= book.buying_price %> </p>
   <p>Selling Price: <%= book.selling_price %> </p>
   <p>Stock Quantity: <%= book.stock_quantity %> </p>

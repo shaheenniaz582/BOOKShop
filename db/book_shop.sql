@@ -27,7 +27,7 @@ CREATE TABLE books
   selling_price FLOAT,
   description VARCHAR(255),
   stock_quantity INT,
-  author_id INT REFERENCES authors(id),
-  publisher_id INT REFERENCES publishers(id)
+  author_id INT REFERENCES authors(id) ON DELETE CASCADE,
+  publisher_id INT REFERENCES publishers(id) ON DELETE CASCADE
 
 );

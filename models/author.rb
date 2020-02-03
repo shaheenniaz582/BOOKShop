@@ -28,7 +28,7 @@ class Author
   def self.all()
     sql = "SELECT * FROM authors"
     results = SqlRunner.run( sql )
-    return results.map { |hash_athr| Author.new(hash_athr) }
+    return results.map { |hash| Author.new( hash ) }
   end
 
   #  !!!UPDATE!!!
@@ -61,13 +61,14 @@ class Author
     sql = "SELECT * FROM authors
           WHERE id = $1"
     values = [id]
-    results = SqlRunner.run(sql, values)
-    return Author.new( results.first )
+    results = SqlRunner.run(sql, values).first
+    author = Author.new( results)
+    return author
   end
 
   # Finds by author name
 
-  def self.find(name)
+  def self.find_by_name(name)
     sql = "SELECT * FROM authors
           WHERE name = $1"
     values = [name]

@@ -28,7 +28,7 @@ class Publisher
     def self.all()
       sql = "SELECT * FROM publishers"
       results = SqlRunner.run( sql )
-      return results.map { |hash_pbshr| Publisher.new(hash_pbshr) }
+      return results.map { |hash| Publisher.new( hash ) }
     end
 
     #  !!!UPDATE!!!
@@ -61,13 +61,14 @@ class Publisher
       sql = "SELECT * FROM publishers
             WHERE id = $1"
       values = [id]
-      results = SqlRunner.run(sql, values)
-      return Publisher.new( results.first )
+      result = SqlRunner.run(sql, values).first
+      publisher = Publisher.new( result )
+      return publisher
     end
 
     # Finds by publisher name
 
-    def self.find(name)
+    def self.find_by_name(name)
       sql = "SELECT * FROM publishers
             WHERE name = $1"
       values = [name]
@@ -75,4 +76,11 @@ class Publisher
       return Publisher.new( results.first )
     end
 
+    # def books()
+    #   sql = "SELECT title, name FROM books
+    #         INNER JOIN Publishers
+    #         ON books.publisher_id = publishers.publisher_id "
+    #   results = SqlRunner.run( sql )
+    #   return results.map { |hash| Publisher.new( hash ) }
+    # end
   end
