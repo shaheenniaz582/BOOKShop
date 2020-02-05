@@ -1,12 +1,24 @@
 <h1>Books</h1>
 
-<% @books.each do |book| %>
- <!-- it will take to route books/id
- <!-- route in books_controller   -->
-  <p><a href="/books/<%= book.id %>">  <%= book.title %> </a> </p>
-  <p>Buying Price: <%= book.buying_price %> </p>
-  <p>Selling Price: <%= book.selling_price %> </p>
-  <p>Stock Quantity: <%= book.stock_quantity %> </p>
-  <p>Description: <%= book.description %> </p>
-  <hr />
-<% end %>
+<table id="table_Book">
+  <tr>
+    <th>Title</th>
+    <th>Buying Price</th>
+    <th>Selling Price</th>
+    <th>Stock Quantity</th>
+    <th>Description</th>
+    <th>Markup 20%</th>
+  </tr>
+  <% for book in @books %>
+
+  <tr>
+    <td><a href="/books/<%= book.id %>">  <%= book.title %> </a></td>
+    <td><%= book.buying_price %></td>
+    <td><%= book.selling_price %></td>
+    <td><%= book.stock_quantity %></td>
+    <td><%= book.description %></td>
+    <td><%= (book.buying_price*0.2) %></td>
+  </tr>
+  <% end %>
+
+</table>

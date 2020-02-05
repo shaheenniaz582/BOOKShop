@@ -1,6 +1,6 @@
 <h1>Authors</h1>
 
-<% @authors.each do |author| %>
-  <p>Name: <%= author.name %></p>
+<% for author in @authors  %>
+  <p>Name:<a href="/authors/<%= author.id %>">  <%= author.name %> </a></p>
   <hr />
 <% end %>

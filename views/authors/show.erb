@@ -1,0 +1,10 @@
+
+<h2><p> Books available in Stock BY <%= @author.name %>Are: </p></h2>
+<% for book in @author.books()%>
+<h3><%=book.title%></h3>
+<%end%>
+<form action="/authors/<%= @author.id %>/edit" method="GET">
+  <input type="submit" value="Edit Author Name"></form>
+
+<form action="/authors/<%= @author.id %>/delete" method="POST">
+  <input type="submit" value="Delete This Author"></form>

@@ -1,0 +1,11 @@
+<p>Publisher Name: <%= @publisher.name %> </p>
+<h2><p> Books available in Stock BY <%= @publisher.name %>Are: </p></h2>
+<% for book in @publisher.books()%>
+<h3><%=book.title%></h3>
+<%end%>
+
+<form action="/publishers/<%= @publisher.id %>/edit" method="GET">
+  <input type="submit" value="Edit"></form>
+
+  <form action="/publishers/<%= @publisher.id %>/delete" method="POST">
+    <input type="submit" value="Delete"></form>

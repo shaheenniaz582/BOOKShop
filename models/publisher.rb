@@ -2,7 +2,7 @@ require_relative('../db/sql_runner')
 
 class Publisher
 
-  attr_reader( :id, :name)
+  attr_accessor( :id, :name)
 
 # ------CONSTRUCTOR------
 
@@ -16,8 +16,8 @@ class Publisher
     #  !!!CREATE!!!
 
     def save()
-      sql = "INSERT INTO publishers(name)
-            VALUES($1)RETURNING id"
+      sql = "INSERT INTO publishers (name)
+            VALUES ($1) RETURNING id"
       values = [@name]
       results = SqlRunner.run(sql, values)
       @id = results.first()['id'].to_i
@@ -34,7 +34,7 @@ class Publisher
     #  !!!UPDATE!!!
 
     def update()
-        sql = "UPDATE publishers SET (name) = ($1)
+        sql = "UPDATE publishers SET name = $1
         WHERE id = $2"
         values = [@name, @id]
         SqlRunner.run(sql, values)
@@ -76,11 +76,12 @@ class Publisher
       return Publisher.new( results.first )
     end
 
-    # def books()
-    #   sql = "SELECT title, name FROM books
-    #         INNER JOIN Publishers
-    #         ON books.publisher_id = publishers.publisher_id "
-    #   results = SqlRunner.run( sql )
-    #   return results.map { |hash| Publisher.new( hash ) }
-    # end
+    def books()
+      sql = "SELECT title FROM books
+            WHERE books.publisher_id = $1"
+      values = [@id]
+      results = SqlRunner.run(sql, values)
+      return results.map { |book| Book.new( book ) }
+    end
+
   end

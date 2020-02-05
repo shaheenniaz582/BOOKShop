@@ -3,7 +3,8 @@ require_relative('../db/sql_runner')
 class Book
 
   attr_accessor( :id, :title, :buying_price, :selling_price,
-               :description, :stock_quantity, :author_id, :publisher_id)
+               :description, :stock_quantity, :author_id,
+               :publisher_id, :gener_id)
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
@@ -14,6 +15,7 @@ class Book
     @stock_quantity = options['stock_quantity'].to_i
     @author_id = options['author_id'].to_i
     @publisher_id = options['publisher_id'].to_i
+    @gener_id = options['gener_id'].to_i
   end
 
   # --------- CRUD --------
@@ -23,10 +25,11 @@ class Book
   def save()
     sql = "INSERT INTO books
           (title, buying_price, selling_price,
-          description, stock_quantity, author_id , publisher_id)
-          VALUES($1, $2, $3, $4, $5, $6, $7)RETURNING id"
+          description, stock_quantity, author_id , publisher_id, gener_id)
+          VALUES($1, $2, $3, $4, $5, $6, $7, $8)RETURNING id"
     values = [@title, @buying_price, @selling_price,
-             @description, @stock_quantity, @author_id, @publisher_id ]
+             @description, @stock_quantity, @author_id,
+             @publisher_id, @gener_id ]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -43,10 +46,10 @@ class Book
 
   def update()
       sql = "UPDATE books SET (title, buying_price, selling_price,
-            description, stock_quantity, author_id, publisher_id) = ($1, $2, $3, $4, $5,$6,$7)
-            WHERE id = $8"
+            description, stock_quantity, author_id, publisher_id,gener_id) = ($1, $2, $3, $4, $5,$6,$7, $8)
+            WHERE id = $9"
       values = [@title, @buying_price,@selling_price, @description,
-               @stock_quantity, @author_id, @publisher_id, @id]
+               @stock_quantity, @author_id, @publisher_id,@gener_id, @id]
       SqlRunner.run(sql, values)
     end
 
@@ -86,15 +89,25 @@ class Book
   end
 
   def author()
-    sql = "Select * from authors where id = $1"
-    values = [@author_id]
-    author = SqlRunner.run(sql,values)[0]
-    return Author.new(author)
+    author = Author.find(@author_id)
+    return author
   end
 
   def publisher()
     publisher = Publisher.find(@publisher_id)
     return publisher
   end
+
+  def gener()
+    gener = Genere.find(@gener_id)
+    return gener
+  end
+
+  def stock_count()
+    sql="SELECT COUNT(books.title) FROM books"
+    result = SqlRunner.run(sql, values)
+    return result
+  end
+
 
 end

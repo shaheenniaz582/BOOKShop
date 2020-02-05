@@ -1,15 +1,14 @@
 require_relative('../db/sql_runner')
-require('pry')
 
-class Author
+class Gener
 
-  attr_accessor :id, :name
+  attr_reader( :id, :gener)
 
   # ------CONSTRUCTOR------
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
-    @name = options['name']
+    @gener = options['gener']
   end
 
   # --------- CRUD --------
@@ -17,9 +16,9 @@ class Author
   #  !!!CREATE!!!
 
   def save()
-    sql = "INSERT INTO authors (name)
-          VALUES ($1) RETURNING id"
-    values = [@name]
+    sql = "INSERT INTO geners(gener)
+          VALUES($1)RETURNING id"
+    values = [@gener]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -27,31 +26,31 @@ class Author
   #  !!!READ!!!
 
   def self.all()
-    sql = "SELECT * FROM authors"
+    sql = "SELECT * FROM geners"
     results = SqlRunner.run( sql )
-    return results.map { |hash| Author.new( hash ) }
+    return results.map { |hash| Gener.new( hash ) }
   end
 
   #  !!!UPDATE!!!
 
   def update()
-      sql = "UPDATE authors SET name = $1
+      sql = "UPDATE geners SET (gener) = ($1)
             WHERE id = $2"
-      values = [@name, @id]
+      values = [@id]
       SqlRunner.run(sql, values)
     end
 
   #  !!!DELETE!!!
 
   def self.delete_all()
-    sql = "DELETE FROM authors"
+    sql = "DELETE FROM geners"
     SqlRunner.run( sql )
   end
 
   #   !!!!DELETE BY ID
 
   def delete()
-    sql = "DELETE from authors where id = $1"
+    sql = "DELETE from geners where id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
   end
@@ -59,27 +58,27 @@ class Author
   # !!!FIND BY ID
 
   def self.find( id )
-    sql = "SELECT * FROM authors
+    sql = "SELECT * FROM geners
           WHERE id = $1"
     values = [id]
     results = SqlRunner.run(sql, values).first
-    author = Author.new( results)
-    return author
+    gener = Gener.new( results)
+    return gener
   end
 
   # Finds by author name
 
-  def self.find_by_name(name)
-    sql = "SELECT * FROM authors
+  def self.find_by_gener(gener)
+    sql = "SELECT * FROM geners
           WHERE name = $1"
-    values = [name]
+    values = [gener]
     results = SqlRunner.run(sql, values)
-    return Author.new( results.first )
+    return Gener.new( results.first )
   end
 
   def books()
     sql = "SELECT title FROM books
-          WHERE books.author_id = $1"
+          WHERE books.gener_id = $1"
     values = [@id]
     results = SqlRunner.run(sql, values)
     return results.map { |book| Book.new( book ) }

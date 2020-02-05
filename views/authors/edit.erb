@@ -1,0 +1,10 @@
+<form method="post" action="/authors/<%= @author.id %>">
+  <label for="name">Author Name:</label>
+  <input
+  type="text"
+  name="name"
+  id="name_field"
+  value="<%= @author.name %>"
+  />
+  <input type='submit' value="Edit This Author">
+</form>

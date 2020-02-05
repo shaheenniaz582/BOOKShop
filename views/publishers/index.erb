@@ -1,4 +1,6 @@
-<% @publishers.each do |publisher| %>
-  <p>Name: <%= publisher.name %></p>
+<h1>Publishers</h1>
+
+<% for publisher in @publishers %>
+  <p>Publisher Name:<a href="/publishers/<%= publisher.id %>">  <%= publisher.name %> </a> </p>
   <hr />
 <% end %>

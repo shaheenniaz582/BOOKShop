@@ -3,25 +3,36 @@
   <head>
     <meta charset="utf-8">
     <title>Scotland BookBug</title>
+    <h1>This is my book shop! :)</h1>
   </head>
-  <body>
-    <%= yield %>
-    <nav>
-      <ul>
+  <link rel="stylesheet" href="/styles/styles.css">
+  <nav>
+    <ul>
+      <li>
+        <a href="/books">Books</a>
+        </li>
         <li>
-          <a href="/books">Books</a>
-          </li>
-          <li>
-            <a href="/publishers">Publishers</a>
-          </li>
-          <li>
-            <a href="/authors">Authors</a>
-          </li>
-          <li>
-            <a href="/books/new">Add A Book</a>
-          </li>
-        </ul>
-      </nav>
+          <a href="/publishers">Publishers</a>
+        </li>
+        <li>
+          <a href="/authors">Authors</a>
+        </li>
+        <li>
+          <a href="/books/new">Add A Book</a>
+        </li>
+        <li>
+          <a href="/authors/new">Add An Author</a>
+        </li>
+        <li>
+          <a href="/publishers/new">Add A Publisher</a>
+        </li>
+      </ul>
+    </nav>
+  <body>
+<img src="/images/book.jpg" align = "Right" height="350" width="350" alt="books">
+
+    <%= yield %>
+
 
   </body>
 </html>

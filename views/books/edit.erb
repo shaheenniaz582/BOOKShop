@@ -40,17 +40,22 @@
   />
 
   <label for="author_select">Select An Author:</label>
-      <select name="author_id" id="author_select">
-        <% @authors.each do |author| %>
-            <option value=<%= author.id %>><%= author.name.capitalize %></option>
-        <% end %>
-      </select>
+  <select name="author_id" id="author_select">
+    <% @authors.each do |author| %>
+    <option value=<%= author.id %>><%= author.name.capitalize %></option>
+    <% end %>
+  </select>
   <label for="publisher_select">Select A Publisher:</label>
-      <select name="publisher_id" id="publisher_select">
-        <% @publishers.each do |publisher| %>
-            <option value=<%= publisher.id %>><%= publisher.name.capitalize %></option>
-        <% end %>
-      </select>
-
+  <select name="publisher_id" id="publisher_select">
+    <% @publishers.each do |publisher| %>
+    <option value=<%= publisher.id %>><%= publisher.name.capitalize %></option>
+    <% end %>
+  </select>
+  <label for="genre_select">Select A Genre:</label>
+  <select name="gener_id" id="publisher_select">
+    <% @gener.each do |gener| %>
+    <option value=<%= gener.id %>><%= gener.gener.capitalize %></option>
+    <% end %>
+  </select>
   <input type='submit' value="Edit This Book">
 </form>

@@ -1,11 +1,13 @@
 require_relative("../models/author.rb")
 require_relative("../models/publisher.rb")
 require_relative("../models/book.rb")
+require_relative("../models/gener.rb")
 require("pry")
 
 Book.delete_all()
 Author.delete_all()
 Publisher.delete_all()
+Gener.delete_all()
 
 author1 = Author.new({"name" => "Chris Pine"})
 author1.save()
@@ -43,6 +45,15 @@ publisher4.save()
 publisher5 = Publisher.new({"name" => "Bloomsburry"})
 publisher5.save()
 
+gener1 = Gener.new({"gener" =>"crime"})
+gener1.save()
+
+gener2 = Gener.new({"gener" =>"Horror"})
+gener2.save()
+
+gener3 = Gener.new({"gener" =>"Romance"})
+gener3.save()
+
 book1 = Book.new({
         "title" => "Learn To program",
         "buying_price" => 11,
@@ -50,7 +61,8 @@ book1 = Book.new({
         "Description" => "The Facets of Ruby series",
         "stock_quantity" => 80,
         "author_id" => author1.id,
-        "publisher_id" => publisher1.id
+        "publisher_id" => publisher1.id,
+        "gener_id" => gener1.id
   })
 
 book1.save()
@@ -62,7 +74,8 @@ book2 = Book.new({
           "Description" => "PPPPPP",
           "stock_quantity" => "90",
           "author_id" => author2.id,
-          "publisher_id" => publisher2.id
+          "publisher_id" => publisher2.id,
+          "gener_id" => gener2.id
     })
 
 book2.save()
@@ -74,7 +87,8 @@ book3 = Book.new({
             "Description" => "WWWWW",
             "stock_quantity" => 50,
             "author_id" => author3.id,
-            "publisher_id" => publisher3.id
+            "publisher_id" => publisher3.id,
+            "gener_id" => gener3.id
       })
 
 book3.save()
@@ -86,7 +100,8 @@ book4 = Book.new({
               "Description" =>"BBBB",
               "stock_quantity" =>80,
               "author_id" => author4.id,
-              "publisher_id" => publisher4.id
+              "publisher_id" => publisher4.id,
+              "gener_id" => gener1.id
         })
 
 book4.save()
@@ -98,7 +113,8 @@ book5 = Book.new({
                 "Description" =>"AAAAAAAAA",
                 "stock_quantity" =>100,
                 "author_id" => author5.id,
-                "publisher_id" => publisher5.id
+                "publisher_id" => publisher5.id,
+                "gener_id" => gener2.id
           })
 
 book5.save()
@@ -110,7 +126,8 @@ book6 = Book.new({
                 "Description" =>"AAAAAAAAA",
                 "stock_quantity" =>100,
                 "author_id" => author6.id,
-                "publisher_id" => publisher5.id
+                "publisher_id" => publisher5.id,
+                "gener_id" => gener3.id
           })
 
 book6.save()
@@ -122,7 +139,8 @@ book7 = Book.new({
                 "Description" =>"AAAAAAAAA",
                 "stock_quantity" =>100,
                 "author_id" => author7.id,
-                "publisher_id" => publisher5.id
+                "publisher_id" => publisher5.id,
+                "gener_id" => gener1.id
           })
 
 book7.save()
