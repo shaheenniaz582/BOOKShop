@@ -1,3 +1,4 @@
+
 td, th {
   text-align: left;
 }
@@ -17,11 +18,15 @@ table {
 
 /* NAVIGATION BAR */
 ul {
+  font-size: 50px;
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #333;
+}
+form {
+  font-size: 30px;
 }
 
 li {
@@ -55,4 +60,11 @@ td, th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+
+.low_quantity{
+  background-color: red;
+}
+.out_of_stock{
+  border-color: green;
 }

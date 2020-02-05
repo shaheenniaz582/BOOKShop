@@ -17,7 +17,7 @@ class Gener
 
   def save()
     sql = "INSERT INTO geners(gener)
-          VALUES($1)RETURNING id"
+    VALUES($1)RETURNING id"
     values = [@gener]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
@@ -34,11 +34,11 @@ class Gener
   #  !!!UPDATE!!!
 
   def update()
-      sql = "UPDATE geners SET (gener) = ($1)
-            WHERE id = $2"
-      values = [@id]
-      SqlRunner.run(sql, values)
-    end
+    sql = "UPDATE geners SET (gener) = ($1)
+    WHERE id = $2"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
 
   #  !!!DELETE!!!
 
@@ -59,7 +59,7 @@ class Gener
 
   def self.find( id )
     sql = "SELECT * FROM geners
-          WHERE id = $1"
+    WHERE id = $1"
     values = [id]
     results = SqlRunner.run(sql, values).first
     gener = Gener.new( results)
@@ -70,7 +70,7 @@ class Gener
 
   def self.find_by_gener(gener)
     sql = "SELECT * FROM geners
-          WHERE name = $1"
+    WHERE name = $1"
     values = [gener]
     results = SqlRunner.run(sql, values)
     return Gener.new( results.first )
@@ -78,7 +78,7 @@ class Gener
 
   def books()
     sql = "SELECT title FROM books
-          WHERE books.gener_id = $1"
+    WHERE books.gener_id = $1"
     values = [@id]
     results = SqlRunner.run(sql, values)
     return results.map { |book| Book.new( book ) }

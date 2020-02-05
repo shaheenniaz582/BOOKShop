@@ -18,7 +18,7 @@ class Author
 
   def save()
     sql = "INSERT INTO authors (name)
-          VALUES ($1) RETURNING id"
+    VALUES ($1) RETURNING id"
     values = [@name]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
@@ -35,11 +35,11 @@ class Author
   #  !!!UPDATE!!!
 
   def update()
-      sql = "UPDATE authors SET name = $1
-            WHERE id = $2"
-      values = [@name, @id]
-      SqlRunner.run(sql, values)
-    end
+    sql = "UPDATE authors SET name = $1
+    WHERE id = $2"
+    values = [@name, @id]
+    SqlRunner.run(sql, values)
+  end
 
   #  !!!DELETE!!!
 
@@ -60,7 +60,7 @@ class Author
 
   def self.find( id )
     sql = "SELECT * FROM authors
-          WHERE id = $1"
+    WHERE id = $1"
     values = [id]
     results = SqlRunner.run(sql, values).first
     author = Author.new( results)
@@ -71,7 +71,7 @@ class Author
 
   def self.find_by_name(name)
     sql = "SELECT * FROM authors
-          WHERE name = $1"
+    WHERE name = $1"
     values = [name]
     results = SqlRunner.run(sql, values)
     return Author.new( results.first )
@@ -79,7 +79,7 @@ class Author
 
   def books()
     sql = "SELECT title FROM books
-          WHERE books.author_id = $1"
+    WHERE books.author_id = $1"
     values = [@id]
     results = SqlRunner.run(sql, values)
     return results.map { |book| Book.new( book ) }

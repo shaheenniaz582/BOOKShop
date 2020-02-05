@@ -1,6 +1,16 @@
 <h1>Publishers</h1>
 
-<% for publisher in @publishers %>
-  <p>Publisher Name:<a href="/publishers/<%= publisher.id %>">  <%= publisher.name %> </a> </p>
-  <hr />
+<table id="table_Book">
+  <tr>
+    <th>ID</th>
+    <th>Publisher Name</th>
+    </tr>
+
+<% for publisher in @publishers  %>
+  <tr>
+  <td><%=publisher.id%></td>
+  <td><a href="/publishers/<%= publisher.id %>">  <%= publisher.name %> </a></td>
+  </tr>
 <% end %>
+
+</table>

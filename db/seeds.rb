@@ -55,96 +55,96 @@ gener3 = Gener.new({"gener" =>"Romance"})
 gener3.save()
 
 book1 = Book.new({
-        "title" => "Learn To program",
-        "buying_price" => 11,
-        "selling_price" => 15,
-        "Description" => "The Facets of Ruby series",
-        "stock_quantity" => 80,
-        "author_id" => author1.id,
-        "publisher_id" => publisher1.id,
-        "gener_id" => gener1.id
+  "title" => "Learn To program",
+  "buying_price" => 11,
+  "selling_price" => 15,
+  "Description" => "The Facets of Ruby series",
+  "stock_quantity" => 80,
+  "author_id" => author1.id,
+  "publisher_id" => publisher1.id,
+  "gener_id" => gener1.id
   })
 
-book1.save()
+  book1.save()
 
-book2 = Book.new({
-          "title" => "War and peace",
-          "buying_price" => 15,
-          "selling_price" => 20,
-          "Description" => "PPPPPP",
-          "stock_quantity" => "90",
-          "author_id" => author2.id,
-          "publisher_id" => publisher2.id,
-          "gener_id" => gener2.id
+  book2 = Book.new({
+    "title" => "War and peace",
+    "buying_price" => 15,
+    "selling_price" => 20,
+    "Description" => "PPPPPP",
+    "stock_quantity" => "90",
+    "author_id" => author2.id,
+    "publisher_id" => publisher2.id,
+    "gener_id" => gener2.id
     })
 
-book2.save()
+    book2.save()
 
-book3 = Book.new({
-            "title" => "His Dark Materials",
-            "buying_price" => 30,
-            "selling_price" => 35,
-            "Description" => "WWWWW",
-            "stock_quantity" => 50,
-            "author_id" => author3.id,
-            "publisher_id" => publisher3.id,
-            "gener_id" => gener3.id
+    book3 = Book.new({
+      "title" => "His Dark Materials",
+      "buying_price" => 30,
+      "selling_price" => 35,
+      "Description" => "WWWWW",
+      "stock_quantity" => 50,
+      "author_id" => author3.id,
+      "publisher_id" => publisher3.id,
+      "gener_id" => gener3.id
       })
 
-book3.save()
+      book3.save()
 
-book4 = Book.new({
-              "title" => "Lords of Rings",
-              "buying_price" =>20,
-              "selling_price" =>25,
-              "Description" =>"BBBB",
-              "stock_quantity" =>80,
-              "author_id" => author4.id,
-              "publisher_id" => publisher4.id,
-              "gener_id" => gener1.id
+      book4 = Book.new({
+        "title" => "Lords of Rings",
+        "buying_price" =>20,
+        "selling_price" =>25,
+        "Description" =>"BBBB",
+        "stock_quantity" =>80,
+        "author_id" => author4.id,
+        "publisher_id" => publisher4.id,
+        "gener_id" => gener1.id
         })
 
-book4.save()
+        book4.save()
 
-book5 = Book.new({
-                "title" => "Harry Potter",
-                "buying_price" =>10,
-                "selling_price" =>12,
-                "Description" =>"AAAAAAAAA",
-                "stock_quantity" =>100,
-                "author_id" => author5.id,
-                "publisher_id" => publisher5.id,
-                "gener_id" => gener2.id
+        book5 = Book.new({
+          "title" => "Harry Potter",
+          "buying_price" =>10,
+          "selling_price" =>12,
+          "Description" =>"AAAAAAAAA",
+          "stock_quantity" =>100,
+          "author_id" => author5.id,
+          "publisher_id" => publisher5.id,
+          "gener_id" => gener2.id
           })
 
-book5.save()
+          book5.save()
 
-book6 = Book.new({
-                "title" => "Sleep Recovery",
-                "buying_price" =>10,
-                "selling_price" =>12,
-                "Description" =>"AAAAAAAAA",
-                "stock_quantity" =>100,
-                "author_id" => author6.id,
-                "publisher_id" => publisher5.id,
-                "gener_id" => gener3.id
-          })
+          book6 = Book.new({
+            "title" => "Sleep Recovery",
+            "buying_price" =>10,
+            "selling_price" =>12,
+            "Description" =>"AAAAAAAAA",
+            "stock_quantity" =>100,
+            "author_id" => author6.id,
+            "publisher_id" => publisher5.id,
+            "gener_id" => gener3.id
+            })
 
-book6.save()
+            book6.save()
 
-book7 = Book.new({
-                "title" => "A Very stable Genius",
-                "buying_price" =>10,
-                "selling_price" =>12,
-                "Description" =>"AAAAAAAAA",
-                "stock_quantity" =>100,
-                "author_id" => author7.id,
-                "publisher_id" => publisher5.id,
-                "gener_id" => gener1.id
-          })
+            book7 = Book.new({
+              "title" => "A Very stable Genius",
+              "buying_price" =>10,
+              "selling_price" =>12,
+              "Description" =>"AAAAAAAAA",
+              "stock_quantity" =>100,
+              "author_id" => author7.id,
+              "publisher_id" => publisher5.id,
+              "gener_id" => gener1.id
+              })
 
-book7.save()
+              book7.save()
 
 
-binding.pry
-nil
+              binding.pry
+              nil

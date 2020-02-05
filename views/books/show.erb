@@ -1,9 +1,29 @@
+<br>
+<br>
 <p>Title: <%= @book.title %> </p>
+<br>
+<br>
 <p>Buying Price: <%= @book.buying_price%></p>
+<br>
+<br>
 <p>Selling Price: <%= @book.selling_price %></p>
+<br>
+<br>
 <p>Description: <%= @book.description %></p>
+<br>
+<br>
 <p>Stock quantity: <%= @book.stock_quantity%></p>
+<br>
+<br>
 <p>Author:<%= @book.author().name%></p>
+<br>
+<br>
 <p>Publisher:<%= @book.publisher().name%></p>
-<p><a href="/books/<%= @book.id %>/edit">Edit This</a></p>
-<form action="/books/<%= @book.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
+<br>
+<br>
+<form action="/books/<%= @book.id %>/edit" method="GET">
+  <input type="submit" value="Edit This Book"></form>
+  <br>
+  <br>
+<form action="/books/<%= @book.id %>/delete" method="POST">
+  <input type="submit" value="Delete"></form>

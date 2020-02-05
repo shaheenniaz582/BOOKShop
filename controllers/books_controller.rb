@@ -10,7 +10,7 @@ require('pry')
 # This controller takes to index of
 # books(lists all books with complete information)
 get '/books' do
-   @books = Book.all() #call to function in book model.
+  @books = Book.all() #call to function in book model.
   erb( :"books/index" ) #index page of books.
 end
 

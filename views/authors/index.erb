@@ -1,6 +1,16 @@
 <h1>Authors</h1>
 
-<% for author in @authors  %>
-  <p>Name:<a href="/authors/<%= author.id %>">  <%= author.name %> </a></p>
-  <hr />
-<% end %>
+<table id="table_Book">
+  <tr>
+    <th>ID</th>
+    <th>Author Name</th>
+  </tr>
+
+  <% for author in @authors  %>
+  <tr>
+    <td><%=author.id%></td>
+    <td><a href="/authors/<%= author.id %>">  <%= author.name %> </a></td>
+  </tr>
+  <% end %>
+
+</table>

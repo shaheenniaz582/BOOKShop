@@ -3,9 +3,6 @@ DROP TABLE authors;
 DROP TABLE publishers;
 DROP TABLE geners;
 
-
-
-
 CREATE TABLE authors
 (
   id SERIAL primary key,
